@@ -1,93 +1,94 @@
-  function write(string){
-process.stdout.write(string);
+function write(string){
+    process.stdout.write(string);
 }
-import chalk from 'chalk';
+import chalk, { backgroundColors } from 'chalk';
+import boxen from 'boxen';
 
 write(chalk.blue.bgGreen('Hello chalk'));
 
+
 for(let i=0; i<16; i++){
- for(let j=0; j=16; j++){
-     let color = (i*j).toString
-       write(chalk.ansi256(color)(color.padEnd(4,'')));  
-        }
-        write('\n')
+    for(let j=0; j<16; j++){        
+        let color = (i*j).toString()    
+        write(chalk.ansi256(color)(color.padEnd(4,' '))); 
     }
-
-
-
-
-
-
-
-
-
-
-
-write("hello world\n");
-//bold                                   //reset
-write('\x1B[1m');write("hello world\n");write('\x1B[0m');  write('\n')
-//dim/faint                             //reset
-write('\x1B[2m');write("hello world\n");write('\x1B[0m');  write('\n')
-//italic                                //reset
-write('\x1B[3m');write("hello world\n");write('\x1B[0m');  write('\n')
-//underline                             //reset
-write('\x1B[4m');write("hello world\n");write('\x1B[0m');  write('\n')
-//blinking                              //reset
-write('\x1B[5m');write("hello world\n");write('\x1B[0m');  write('\n')
-//                             //reset
-write('\x1B[6m');write("hello world\n");write('\x1B[0m');  write('\n')
-//inverse                               //reset
-write('\x1B[7m');write("hello world\n");write('\x1B[0m');  write('\n')
-//hidden invisible                      //reset
-write('\x1B[8m');write("hello world\n");write('\x1B[0m');  write('\n')
-//strikethrough                         //reset
-write('\x1B[9m');write("hello world\n");write('\x1B[0m');  write('\n')
-
-
-
-for(let i=30; i<40; i++){
-    if(i==38) continue;
-//colors
-write('\x1B[1;'+i+'m'); write('color code number' + i);write('\x1B[0m');  write('\n')
-}
-//\x1B[2;30m
-for(let i=30; i<40; i++){
-    if(i==38) continue;
-//colors
-write('\x1B[2;'+i+'m'); write('color code number' + i);write('\x1B[0m');  write('\n')
-}
-
-//for(let i=30; i<40; i++){
-// for(let j=0; j=16; j++){
-//     let color= i*j;
-//        //colors
-//        write('\x1B[38;5;'+color+'m'); write(color);write('\x1B[0m');  write('\n')
-//        }
-//    }
-
-//\x1B[1;30m
-for(let i=40; i<50; i++){
-    if(i==48) continue;
-//background colors
-write('\x1B[1;'+i+'m'); write('color code number' + i);write('\x1B[0m');  write('\n')
-}
-
-//\x1B[2;30m
-for(let i=40; i<50; i++){
-    if(i==48) continue;
-//background colors
-write('\x1B[2;'+i+'m'); write('color code number' + i);write('\x1B[0m');  write('\n')
+    write('\n');
 }
 
 
-console.clear();
-let date = new Date().toString();
-write(date);
-setInterval(()=> {
-    write('\x1B['+ date.length + 'D');
-    date = new Date().toString();
-    write(date);
-},1000);
 
 
 
+write(boxen(chalk.blue.bgGreen('Hello chalk'), {
+    padding: 1,
+    margin:1
+}));
+
+write(boxen(chalk.blue.bgRed.bold('Hello chalk'), {
+    padding: 1,
+    borderStyle: 'double',
+    borderColor: 'magenta',
+}));
+
+write('\n');
+
+write(boxen(chalk.rgb(225,225,153)('Hello chalk'), {
+    padding: 1,
+    borderStyle: 'arrow',
+    borderColor: '#00ff19',
+}));
+
+
+write('\n');
+
+write(boxen(chalk.black.bgCyanBright('Hello chalk'), {
+    padding: 3,
+    borderStyle: 'bold',
+    borderColor: '#9370db',
+    title: 'learnTerminal',
+    height: 3,
+}));
+
+write('\n');
+
+write(boxen(chalk.black.bgCyanBright('!!!'), {
+    padding: 0.5,
+    borderStyle: 'classic',
+    borderColor: 'blue',
+    height: 15,
+    width:  100,
+    textAlignment: 'center',
+    title: 'learnTerminal',
+    titleAlignment: 'center'
+    
+}));
+
+write('\n');
+
+write(boxen(chalk.black.bgCyanBright('!!!'), {
+    padding: 2,
+    borderStyle: {
+        topLeft: '*',
+        topRight: '*',
+        bottomLeft: '@',
+        bottomRight: '@',
+        top: '|',
+        bottom: '|',
+        left: '-',
+        right: '-'
+    }
+    
+}));
+
+write('\n');
+
+write(boxen(chalk.hex('#00ffff')('___'), {
+    borderStyle: 'round',
+    borderColor: '#00ffff',
+    height: 10,
+    width:  50,
+    textAlignment: 'center',
+    title: 'O.O',
+    titleAlignment: 'center'
+    
+}));
