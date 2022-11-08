@@ -1,6 +1,28 @@
   function write(string){
 process.stdout.write(string);
 }
+import chalk from 'chalk';
+
+write(chalk.blue.bgGreen('Hello chalk'));
+
+for(let i=0; i<16; i++){
+ for(let j=0; j=16; j++){
+     let color = (i*j).toString
+       write(chalk.ansi256(color)(color.padEnd(4,'')));  
+        }
+        write('\n')
+    }
+
+
+
+
+
+
+
+
+
+
+
 write("hello world\n");
 //bold                                   //reset
 write('\x1B[1m');write("hello world\n");write('\x1B[0m');  write('\n')
