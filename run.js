@@ -41,7 +41,7 @@ write(boxen(chalk.rgb(225,225,153)('Hello chalk'), {
 
 write('\n');
 
-write(boxen(chalk.black.bgCyanBright('Hello chalk'), {
+write(boxen(chalk.black.bgGreenBright('Hello chalk'), {
     padding: 3,
     borderStyle: 'bold',
     borderColor: '#9370db',
@@ -65,7 +65,7 @@ write(boxen(chalk.black.bgCyanBright('!!!'), {
 
 write('\n');
 
-write(boxen(chalk.black.bgCyanBright('!!!'), {
+write(boxen(chalk.black.bgRedBright('Hi!'), {
     padding: 2,
     borderStyle: {
         topLeft: '*',
